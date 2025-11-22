@@ -1,0 +1,84 @@
+<div class="home-container">
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Welcome to <span class="gradient-text">RxGPT HealthCare</span>
+          </h1>
+          <p class="hero-subtitle">
+            Empowered by GenAI - Your comprehensive digital health platform 
+            for modern healthcare management
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary">Get Started</button>
+            <button class="btn btn-outline">Learn More</button>
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <div class="floating-card card-1">
+            <span class="card-icon">💊</span>
+            <span class="card-text">Smart Prescriptions</span>
+          </div>
+          <div class="floating-card card-2">
+            <span class="card-icon">📊</span>
+            <span class="card-text">Health Analytics</span>
+          </div>
+          <div class="floating-card card-3">
+            <span class="card-icon">🩺</span>
+            <span class="card-text">Virtual Consultations</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <h2 class="section-title">Our Core Features</h2>
+        <div class="features-grid">
+          <div *ngFor="let feature of features" 
+               class="feature-card"
+               [style.border-color]="feature.color">
+            <div class="feature-icon" [style.background]="feature.color">
+              {{ feature.icon }}
+            </div>
+            <h3 class="feature-title">{{ feature.title }}</h3>
+            <p class="feature-description">{{ feature.description }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-section">
+        <div class="stat-card">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Active Patients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1.2M+</div>
+          <div class="stat-label">Consultations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Healthcare Professionals</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Support Available</div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Transform Your Healthcare Experience?</h2>
+          <p class="cta-description">
+            Join thousands of patients and healthcare providers who trust 
+            RxGPT HealthCare for their medical needs.
+          </p>
+          <div class="cta-input-group">
+            <input type="text" 
+                   placeholder="Ask me any healthcare details..." 
+                   class="cta-input">
+            <button class="cta-button">
+              <span>Send</span>
+              <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>

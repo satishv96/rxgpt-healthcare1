@@ -1,0 +1,342 @@
+ <div class="signup-container">
+      <!-- Background Decoration -->
+      <div class="background-decoration">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+      </div>
+
+      <!-- Left Panel - Branding -->
+      <div class="left-panel">
+        <div class="branding-content">
+          <div class="logo-section">
+            <div class="logo-icon">Rx</div>
+            <h1 class="brand-name">GPT HealthCare</h1>
+            <p class="brand-tagline">Join thousands of satisfied patients</p>
+          </div>
+          
+          <div class="stats-grid">
+            <div class="stat-card" *ngFor="let stat of stats">
+              <div class="stat-number">{{ stat.number }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              RxGPT HealthCare has transformed how I manage my health. 
+              The AI-powered insights are incredible!
+            </p>
+            <div class="testimonial-author">
+              <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=ffffff&color=6366f1" 
+                   alt="Sarah Johnson" 
+                   class="author-avatar">
+              <div>
+                <div class="author-name">Sarah Johnson</div>
+                <div class="author-role">Healthcare Professional</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel - Signup Form -->
+      <div class="right-panel">
+        <div class="form-container">
+          <!-- Back Button -->
+          <button class="back-button" (click)="goBack()">
+            <span class="back-icon">←</span>
+            <span>Back</span>
+          </button>
+
+          <!-- Header -->
+          <div class="form-header">
+            <h2 class="form-title">Create Account</h2>
+            <p class="form-subtitle">Start your healthcare journey with us today</p>
+          </div>
+
+          <!-- Progress Steps -->
+          <div class="progress-steps">
+            <div class="step" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+              <div class="step-number">1</div>
+              <div class="step-label">Personal Info</div>
+            </div>
+            <div class="progress-line" [class.completed]="currentStep > 1"></div>
+            <div class="step" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+              <div class="step-number">2</div>
+              <div class="step-label">Account Details</div>
+            </div>
+            <div class="progress-line" [class.completed]="currentStep > 2"></div>
+            <div class="step" [class.active]="currentStep >= 3">
+              <div class="step-number">3</div>
+              <div class="step-label">Verification</div>
+            </div>
+          </div>
+
+          <!-- Signup Form -->
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+            <!-- Step 1: Personal Information -->
+            <div class="form-step" *ngIf="currentStep === 1">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <div class="input-wrapper" [class.error]="isFieldInvalid('firstName')">
+                    <input
+                      id="firstName"
+                      type="text"
+                      formControlName="firstName"
+                      placeholder="John"
+                      class="form-input"
+                    />
+                  </div>
+                  <span class="error-message" *ngIf="isFieldInvalid('firstName')">
+                    {{ getErrorMessage('firstName') }}
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <div class="input-wrapper" [class.error]="isFieldInvalid('lastName')">
+                    <input
+                      id="lastName"
+                      type="text"
+                      formControlName="lastName"
+                      placeholder="Doe"
+                      class="form-input"
+                    />
+                  </div>
+                  <span class="error-message" *ngIf="isFieldInvalid('lastName')">
+                    {{ getErrorMessage('lastName') }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                <div class="input-wrapper" [class.error]="isFieldInvalid('dateOfBirth')">
+                  <input
+                    id="dateOfBirth"
+                    type="date"
+                    formControlName="dateOfBirth"
+                    class="form-input"
+                  />
+                </div>
+                <span class="error-message" *ngIf="isFieldInvalid('dateOfBirth')">
+                  {{ getErrorMessage('dateOfBirth') }}
+                </span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone Number</label>
+                <div class="input-wrapper" [class.error]="isFieldInvalid('phone')">
+                  <input
+                    id="phone"
+                    type="tel"
+                    formControlName="phone"
+                    placeholder="+1 (555) 123-4567"
+                    class="form-input"
+                  />
+                </div>
+                <span class="error-message" *ngIf="isFieldInvalid('phone')">
+                  {{ getErrorMessage('phone') }}
+                </span>
+              </div>
+
+              <button type="button" class="next-button" (click)="nextStep()">
+                Continue
+                <span class="arrow">→</span>
+              </button>
+            </div>
+
+            <!-- Step 2: Account Details -->
+            <div class="form-step" *ngIf="currentStep === 2">
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <div class="input-wrapper" [class.error]="isFieldInvalid('email')">
+                  <input
+                    id="email"
+                    type="email"
+                    formControlName="email"
+                    placeholder="john.doe@example.com"
+                    class="form-input"
+                  />
+                </div>
+                <span class="error-message" *ngIf="isFieldInvalid('email')">
+                  {{ getErrorMessage('email') }}
+                </span>
+              </div>
+
+              <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <div class="input-wrapper" [class.error]="isFieldInvalid('password')">
+                  <input
+                    id="password"
+                    [type]="showPassword ? 'text' : 'password'"
+                    formControlName="password"
+                    placeholder="Create a strong password"
+                    class="form-input"
+                  />
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    (click)="togglePassword()"
+                    tabindex="-1"
+                  >
+                    👁️
+                  </button>
+                </div>
+                <div class="password-strength">
+                  <div class="strength-bars">
+                    <div class="strength-bar" [class.active]="passwordStrength >= 1" [class.weak]="passwordStrength === 1"></div>
+                    <div class="strength-bar" [class.active]="passwordStrength >= 2" [class.medium]="passwordStrength === 2"></div>
+                    <div class="strength-bar" [class.active]="passwordStrength >= 3" [class.strong]="passwordStrength === 3"></div>
+                    <div class="strength-bar" [class.active]="passwordStrength >= 4" [class.strong]="passwordStrength === 4"></div>
+                  </div>
+                  <span class="strength-text">{{ getPasswordStrengthText() }}</span>
+                </div>
+                <span class="error-message" *ngIf="isFieldInvalid('password')">
+                  {{ getErrorMessage('password') }}
+                </span>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <div class="input-wrapper" [class.error]="isFieldInvalid('confirmPassword')">
+                  <input
+                    id="confirmPassword"
+                    [type]="showConfirmPassword ? 'text' : 'password'"
+                    formControlName="confirmPassword"
+                    placeholder="Re-enter your password"
+                    class="form-input"
+                  />
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    (click)="toggleConfirmPassword()"
+                    tabindex="-1"
+                  >
+                    👁️
+                  </button>
+                </div>
+                <span class="error-message" *ngIf="isFieldInvalid('confirmPassword')">
+                  {{ getErrorMessage('confirmPassword') }}
+                </span>
+              </div>
+
+              <div class="button-group">
+                <button type="button" class="back-step-button" (click)="previousStep()">
+                  ← Back
+                </button>
+                <button type="button" class="next-button" (click)="nextStep()">
+                  Continue
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Terms & Verification -->
+            <div class="form-step" *ngIf="currentStep === 3">
+              <div class="terms-section">
+                <div class="info-card">
+                  <div class="info-icon">📋</div>
+                  <div class="info-content">
+                    <h4>Review Your Information</h4>
+                    <div class="review-item">
+                      <span class="review-label">Name:</span>
+                      <span class="review-value">{{ signupForm.get('firstName')?.value }} {{ signupForm.get('lastName')?.value }}</span>
+                    </div>
+                    <div class="review-item">
+                      <span class="review-label">Email:</span>
+                      <span class="review-value">{{ signupForm.get('email')?.value }}</span>
+                    </div>
+                    <div class="review-item">
+                      <span class="review-label">Phone:</span>
+                      <span class="review-value">{{ signupForm.get('phone')?.value }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox-label large">
+                    <input type="checkbox" formControlName="agreeTerms" class="checkbox-input">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-text">
+                      I agree to the <a href="#" class="link-primary">Terms of Service</a> 
+                      and <a href="#" class="link-primary">Privacy Policy</a>
+                    </span>
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox-label large">
+                    <input type="checkbox" formControlName="agreeHipaa" class="checkbox-input">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-text">
+                      I consent to <a href="#" class="link-primary">HIPAA Authorization</a> 
+                      for sharing health information
+                    </span>
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox-label large">
+                    <input type="checkbox" formControlName="newsletter" class="checkbox-input">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-text">
+                      Send me health tips, updates, and special offers
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="button-group">
+                <button type="button" class="back-step-button" (click)="previousStep()">
+                  ← Back
+                </button>
+                <button
+                  type="submit"
+                  class="submit-button"
+                  [disabled]="signupForm.invalid || isLoading"
+                >
+                  <span *ngIf="!isLoading">Create Account</span>
+                  <span *ngIf="isLoading" class="loading-spinner"></span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Social Signup (only on first step) -->
+          <div class="social-section" *ngIf="currentStep === 1">
+            <div class="divider">
+              <span class="divider-text">OR SIGN UP WITH</span>
+            </div>
+
+            <div class="social-login">
+              <button type="button" class="social-button google" (click)="signUpWithGoogle()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M19.8055 10.2292C19.8055 9.55131 19.7494 8.86881 19.6287 8.20007H10.2002V11.9938H15.6014C15.3762 13.2013 14.6569 14.263 13.6175 14.963V17.3565H16.8294C18.7169 15.6059 19.8055 13.1034 19.8055 10.2292Z" fill="#4285F4"/>
+                  <path d="M10.2002 19.6667C12.7568 19.6667 14.8914 18.8434 16.8339 17.3567L13.622 14.9633C12.7389 15.5567 11.5945 15.8959 10.2047 15.8959C7.73638 15.8959 5.66221 14.1275 4.88138 11.7788H1.56055V14.2363C3.53555 18.1609 6.70471 19.6667 10.2002 19.6667Z" fill="#34A853"/>
+                  <path d="M4.87693 11.7738C4.42443 10.5663 4.42443 9.24297 4.87693 8.03547V5.57797H1.56068C0.166179 8.34464 0.166179 11.4646 1.56068 14.2313L4.87693 11.7738Z" fill="#FBBC04"/>
+                  <path d="M10.2002 4.10419C11.6665 4.08336 13.0827 4.64794 14.1352 5.66669L17.0073 2.79461C14.7919 0.705277 11.8494 -0.433056 10.2002 -0.416667C6.70471 -0.416667 3.53555 1.08919 1.56055 5.01794L4.87138 7.47544C5.64763 5.12211 7.72638 4.10419 10.2002 4.10419Z" fill="#EA4335"/>
+                </svg>
+                <span>Continue with Google</span>
+              </button>
+
+              <button type="button" class="social-button facebook" (click)="signUpWithFacebook()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M20 10C20 4.47715 15.5229 0 10 0C4.47715 0 0 4.47715 0 10C0 14.9912 3.65684 19.1283 8.4375 19.8785V12.8906H5.89844V10H8.4375V7.79688C8.4375 5.29063 9.93047 3.90625 12.2146 3.90625C13.3084 3.90625 14.4531 4.10156 14.4531 4.10156V6.5625H13.1922C11.95 6.5625 11.5625 7.3334 11.5625 8.125V10H14.3359L13.8926 12.8906H11.5625V19.8785C16.3432 19.1283 20 14.9912 20 10Z" fill="#1877F2"/>
+                </svg>
+                <span>Continue with Facebook</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sign In Link -->
+          <div class="signin-link">
+            Already have an account? 
+            <a routerLink="/auth" class="link-primary">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </div>

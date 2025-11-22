@@ -1,0 +1,35 @@
+  .app-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8edf5 100%);
+    }
+
+    .main-wrapper {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    .content-area {
+      flex: 1;
+      margin-left: 280px;
+      padding: 2rem;
+      transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      min-height: calc(100vh - 140px);
+    }
+
+    .content-area.expanded {
+      margin-left: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .content-area {
+        margin-left: 0;
+        padding: 1rem;
+      }
+      
+      .content-area.expanded {
+        margin-left: 0;
+      }
+    }

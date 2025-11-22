@@ -1,0 +1,36 @@
+ <header class="header">
+      <div class="header-left">
+        <button class="menu-btn" (click)="onMenuToggle()">
+          <span class="menu-icon">☰</span>
+        </button>
+        <div class="search-container">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            placeholder="Search patients, appointments, records..."
+            class="search-input">
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button class="icon-btn" title="Notifications">
+          <span class="icon">🔔</span>
+          <span class="notification-badge">5</span>
+        </button>
+        <button class="icon-btn" title="Messages">
+          <span class="icon">💬</span>
+          <span class="notification-badge">12</span>
+        </button>
+        <button class="icon-btn" title="Settings">
+          <span class="icon">⚙️</span>
+        </button>
+        <div class="divider"></div>
+        <div class="user-menu">
+          <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff" 
+               alt="User" 
+               class="user-avatar">
+          <span class="user-name">Dr. John Doe</span>
+          <span class="dropdown-icon">▼</span>
+        </div>
+      </div>
+    </header>
