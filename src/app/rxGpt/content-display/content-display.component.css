@@ -1,0 +1,87 @@
+    .content-container {
+      padding: 1.5rem;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .content-header {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .content-header:first-child {
+      margin-top: 0;
+    }
+
+    .header-line {
+      width: 0.25rem;
+      height: 1.5rem;
+      background-color: #4f46e5;
+      border-radius: 0.125rem;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+
+    .header-text {
+      display: inline-block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+      vertical-align: middle;
+    }
+
+    .header-divider {
+      height: 0.125rem;
+      background: linear-gradient(to right, #4f46e5, transparent);
+      margin-top: 0.5rem;
+    }
+
+    .list-item-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      margin-left: 1rem;
+    }
+
+    .bullet-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: #3b82f6;
+      border-radius: 50%;
+      margin-top: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .label-text {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .content-text {
+      color: #374151;
+      margin-left: 0.25rem;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+      margin-left: 1rem;
+    }
+
+    .list-content {
+      color: #374151;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .paragraph {
+      color: #374151;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }

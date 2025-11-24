@@ -1,0 +1,34 @@
+<div class="voice-container">
+  <!-- <h2>Voice to Text Converter</h2> -->
+
+  <div class="controls">
+    <button (click)="toggleRecording()" [class.recording]="isRecording" [disabled]="!isSupported">
+      <span class="icon">{{ isRecording ? '⏹️' : '🎤' }}</span>
+      {{ isRecording ? 'Stop Recording' : 'Start Recording' }}
+    </button>
+  </div>
+
+  <div class="status" *ngIf="!isSupported" class="error">
+    ⚠️ Speech recognition is not supported in your browser.
+    Please use Chrome, Edge, or Safari.
+  </div>
+
+  <!-- <div class="status" *ngIf="isRecording">
+    <span class="pulse">●</span> Listening...
+  </div> -->
+
+  <!-- <div class="transcript-container">
+    <h3>Transcript:</h3>
+    <div class="transcript" [class.empty]="!transcript">
+      {{ transcript || 'Your speech will appear here...' }}
+    </div>
+  </div> -->
+
+  <!-- <div class="interim" *ngIf="interimTranscript">
+    <em>{{ interimTranscript }}</em>
+  </div>
+
+  <button *ngIf="transcript" (click)="clearTranscript()" class="clear-btn">
+    Clear Transcript
+  </button> -->
+</div>

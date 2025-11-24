@@ -1,0 +1,58 @@
+<div class="container">
+  <!-- Header Section -->
+  <header class="header">
+    <h1 class="title">Health Insurance Types Guide</h1>
+    <p class="subtitle">Understanding your health insurance options</p>
+  </header>
+
+  <!-- Insurance Cards Grid -->
+  <div class="insurance-grid">
+    <div 
+      *ngFor="let insurance of insuranceTypes"
+      class="insurance-card"
+      [class.selected]="selectedInsurance?.id === insurance.id"
+      (click)="selectInsurance(insurance)"
+      [style.border-left-color]="insurance.color">
+      
+      <div class="card-header">
+        <span class="icon">{{ insurance.icon }}</span>
+        <div class="card-title-section">
+          <h2 class="card-title">{{ insurance.name }}</h2>
+          <p class="card-subtitle">{{ insurance.fullName }}</p>
+        </div>
+      </div>
+      
+      <div class="card-body" *ngIf="selectedInsurance?.id === insurance.id">
+        <p class="description">{{ insurance.description }}</p>
+      </div>
+      
+      <div class="card-footer" *ngIf="selectedInsurance?.id !== insurance.id">
+        <span class="click-hint">Click to learn more</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Considerations Section -->
+  <div class="considerations-section">
+    <h2 class="section-title">Important Factors to Consider</h2>
+    <p class="section-description">
+      When choosing a health insurance plan, it's important to evaluate these key factors:
+    </p>
+    <div class="considerations-grid">
+      <div 
+        *ngFor="let consideration of considerations"
+        class="consideration-chip">
+        <span class="chip-icon">✓</span>
+        {{ consideration }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Note -->
+  <!-- <div class="footer-note">
+    <p>
+      💡 <strong>Pro Tip:</strong> Compare multiple plans and consider your healthcare needs, 
+      budget, and preferred doctors before making a decision.
+    </p>
+  </div> -->
+</div>

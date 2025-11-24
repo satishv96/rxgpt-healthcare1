@@ -2,6 +2,9 @@
 // home.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RxGPTService } from '../../services/rxgpt.service';
+import { Router } from '@angular/router';
 
 interface FeatureCard {
   icon: string;
@@ -13,11 +16,16 @@ interface FeatureCard {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl:'home.component.html',
   styleUrl:'home.component.css'
 })
 export class HomeComponent {
+
+  healthcareQuery: string = '';
+  posts: any[] | undefined;
+  healthcareQueryRes: string ='';
+
   features: FeatureCard[] = [
     {
       icon: '❤️',
@@ -44,4 +52,32 @@ export class HomeComponent {
       color: 'rgba(168, 85, 247, 0.15)'
     }
   ];
+
+   constructor(private rxgptService: RxGPTService, private router: Router) {}
+
+  ngOnInit(): void {    
+    // uncomment to test
+   // this.testAPICall();
+  }
+
+    onQueryKeyPress(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+     this.onSubmitQuery();
+    }
+  }
+
+  onSubmitQuery() {
+    if (this.healthcareQuery && this.healthcareQuery.trim()) {
+      console.log('Healthcare Query:', this.healthcareQuery);
+      this.router.navigate(['queryResponse']);
+
+      this.rxgptService.rxGptQuery = this.healthcareQuery;
+      // Add your query handling logic here
+      // this.rxGPTapiCall(this.healthcareQuery);
+      //  this.healthcareQuery = '';
+    } else {
+      alert('Please enter RxGPT query!');
+    }
+  }
+
 }

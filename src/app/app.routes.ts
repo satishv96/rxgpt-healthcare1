@@ -44,6 +44,10 @@ export const routes: Routes = [
     loadComponent: () => import('./auth/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
   },
   {
+    path: 'queryResponse',
+    loadComponent: () => import('./rxGpt/query-response/query-response.component').then(m => m.QueryResponseComponent)
+  },
+  {
     path: '**',
     redirectTo: '/home'
   }

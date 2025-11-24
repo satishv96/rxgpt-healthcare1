@@ -1,0 +1,32 @@
+    <div class="content-container">
+      <ng-container *ngFor="let element of parsedElements; trackBy: trackByFn">
+        
+        <!-- Header -->
+        <div *ngIf="element.type === 'header'" class="content-header">
+          <div class="header-line"></div>
+          <h2 class="header-text">{{ element.content }}</h2>
+          <div class="header-divider"></div>
+        </div>
+
+        <!-- List Item with Header -->
+        <div *ngIf="element.type === 'list-item-header'" class="list-item-header">
+          <div class="bullet-dot"></div>
+          <div>
+            <span class="label-text">{{ element.header }}:</span>
+            <span class="content-text">{{ element.content }}</span>
+          </div>
+        </div>
+
+        <!-- List Item -->
+        <div *ngIf="element.type === 'list-item'" class="list-item">
+          <div class="bullet-dot"></div>
+          <p class="list-content">{{ element.content }}</p>
+        </div>
+
+        <!-- Paragraph -->
+        <p *ngIf="element.type === 'paragraph'" class="paragraph">
+          {{ element.content }}
+        </p>
+        
+      </ng-container>
+    </div>

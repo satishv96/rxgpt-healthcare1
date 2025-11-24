@@ -73,9 +73,10 @@
           <div class="cta-input-group">
             <input type="text" 
                    placeholder="Ask me any healthcare details..." 
-                   class="cta-input">
-            <button class="cta-button">
-              <span>Send</span>
+                   class="cta-input" [(ngModel)]="healthcareQuery"
+          (keypress)="onQueryKeyPress($event)" >
+            <button class="cta-button" (click)="onSubmitQuery()">
+              <span >Send</span>
               <span class="arrow">→</span>
             </button>
           </div>
