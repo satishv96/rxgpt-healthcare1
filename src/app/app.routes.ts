@@ -48,6 +48,10 @@ export const routes: Routes = [
     loadComponent: () => import('./rxGpt/query-response/query-response.component').then(m => m.QueryResponseComponent)
   },
   {
+    path: 'reportAnalyse',
+    loadComponent: () => import('./pages/lab-report-analyse/lab-report-analyse.component').then(m => m.LabReportAnalyseComponent)
+  },
+  {
     path: '**',
     redirectTo: '/home'
   }

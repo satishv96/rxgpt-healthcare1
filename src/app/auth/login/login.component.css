@@ -45,7 +45,7 @@
 
     /* Left Panel */
     .left-panel {
-      background: linear-gradient(135deg, --primary-600, 0%, #8b5cf6 100%);
+      background: linear-gradient(135deg, #6366f1, 0%, #8b5cf6 100%);
       padding: 4rem;
       display: flex;
       flex-direction: column;

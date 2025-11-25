@@ -26,8 +26,9 @@ export class SidenavComponent {
     { icon: '💬', label: 'General Enquiry', route: '/enquiry', badge: '3' },
     { icon: '📅', label: 'Book Your Doctor', route: '/book' },
     { icon: '🔐', label: 'Login & Register', route: '/auth' },
+    { icon: '📊', label: 'Lab Report Analyse ', route: '/reportAnalyse' },
     { icon: '❓', label: 'May I help you', route: '/help' },
-    { icon: '👥', label: 'Hospital Staff', route: '/staff' },
+    { icon: '👥', label: 'Hospital Staff', route: '/staff' },    
     { icon: 'ℹ️', label: 'About', route: '/about' }
   ];
 

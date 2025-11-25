@@ -1,0 +1,107 @@
+   <div class="wip-container">
+      <!-- Background Decoration -->
+      <div class="background-pattern"></div>
+
+      <!-- Content Card -->
+      <div class="content-card">
+        <!-- Animated Icon -->
+        <div class="icon-wrapper">
+          <div class="icon-circle">
+            <svg class="construction-icon" width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <!-- Construction Cone -->
+              <path d="M40 10L60 60H20L40 10Z" fill="url(#gradient1)" stroke="#6366f1" stroke-width="2"/>
+              <path d="M25 45H55" stroke="white" stroke-width="3" stroke-linecap="round"/>
+              <path d="M28 55H52" stroke="white" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="40" cy="63" rx="22" ry="4" fill="#4f46e5"/>
+              <defs>
+                <linearGradient id="gradient1" x1="40" y1="10" x2="40" y2="60">
+                  <stop offset="0%" stop-color="#f97316"/>
+                  <stop offset="100%" stop-color="#fb923c"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="icon-glow"></div>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-dots">
+          <span class="dot dot-1"></span>
+          <span class="dot dot-2"></span>
+          <span class="dot dot-3"></span>
+        </div>
+
+        <!-- Main Content -->
+        <div class="text-content">
+          <h1 class="main-title">
+            <span class="gradient-text">{{ title }}</span>
+          </h1>
+          <p class="subtitle">{{ subtitle }}</p>
+          <p class="description">{{ description }}</p>
+        </div>
+
+        <!-- Status Badge -->
+        <div class="status-badge">
+          <span class="status-icon">🚧</span>
+          <span class="status-text">{{ statusText }}</span>
+        </div>
+
+        <!-- Features List -->
+        <div class="features-list" *ngIf="showFeatures">
+          <h3 class="features-title">What's coming:</h3>
+          <ul class="features-items">
+            <li class="feature-item" *ngFor="let feature of upcomingFeatures">
+              <span class="feature-icon">✨</span>
+              <span class="feature-text">{{ feature }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-section" *ngIf="showProgress">
+          <div class="progress-header">
+            <span class="progress-label">Development Progress</span>
+            <span class="progress-percentage">{{ progressPercentage }}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="progressPercentage">
+              <div class="progress-shimmer"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn btn-primary" (click)="onNotify()" *ngIf="showNotifyButton">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 6.66667C15 5.34058 14.4732 4.06881 13.5355 3.13113C12.5979 2.19345 11.3261 1.66667 10 1.66667C8.67392 1.66667 7.40215 2.19345 6.46447 3.13113C5.52678 4.06881 5 5.34058 5 6.66667C5 12.5 2.5 14.1667 2.5 14.1667H17.5C17.5 14.1667 15 12.5 15 6.66667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11.4417 17.5C11.2952 17.7526 11.0849 17.9622 10.8319 18.1079C10.5789 18.2537 10.292 18.3304 10 18.3304C9.70802 18.3304 9.42111 18.2537 9.16807 18.1079C8.91503 17.9622 8.70481 17.7526 8.55835 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Notify Me</span>
+          </button>
+          
+          <button class="btn btn-secondary" routerLink="/" *ngIf="showBackButton">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15.8333 10H4.16666M4.16666 10L9.99999 15.8333M4.16666 10L9.99999 4.16667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Go Back Home</span>
+          </button>
+        </div>
+
+        <!-- Contact Info -->
+        <!-- <div class="contact-info" *ngIf="showContact">
+          <p class="contact-text">
+            Have questions? 
+            <a href="mailto:{{ contactEmail }}" class="contact-link">Contact us</a>
+          </p>
+        </div>
+      </div> -->
+
+      <!-- Floating Elements -->
+      <div class="floating-elements">
+        <div class="floating-element element-1">⚙️</div>
+        <div class="floating-element element-2">🔧</div>
+        <div class="floating-element element-3">📐</div>
+        <div class="floating-element element-4">💡</div>
+      </div>
+    </div>

@@ -1,8 +1,10 @@
  <aside class="sidenav" [class.collapsed]="isCollapsed">
       <div class="sidenav-header">
         <div class="logo" [class.collapsed]="isCollapsed">
-          <span class="logo-icon">Rx</span>
-          <span class="logo-text" *ngIf="!isCollapsed">GPT HealthCare</span>
+          <!-- <span class="logo-icon">Rx</span>
+          <span class="logo-text" *ngIf="!isCollapsed">GPT HealthCare</span> -->
+          <img src="assets/images/RxGPT_icon.jpg" alt="AI Hospital Automation" class="circle-img"/>
+          <span class="logo-text" *ngIf="!isCollapsed">RxGPT HealthCare</span>
         </div>
         <button class="collapse-btn" (click)="toggleCollapse()">
           <span class="icon">{{ isCollapsed ? '→' : '←' }}</span>
