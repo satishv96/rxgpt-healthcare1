@@ -1,0 +1,139 @@
+    <div class="demo-container">
+      <h1 class="page-title">Sticky Bottom Examples</h1>
+      <p class="page-subtitle">Scroll down to see different sticky implementations</p>
+
+      <!-- Example 1: Fixed Position (Always Visible) -->
+      <section class="example-section">
+        <h2 class="section-title">1. Fixed Position (Always Visible)</h2>
+        <p class="section-description">
+          This stays at the bottom of the viewport, always visible regardless of scroll position.
+          Perfect for chat buttons, notifications, or action bars.
+        </p>
+        <div class="code-block">
+          <code>position: fixed; bottom: 0;</code>
+        </div>
+      </section>
+
+      <!-- Example 2: Sticky Position (Sticks When Scrolling) -->
+      <section class="example-section">
+        <h2 class="section-title">2. Sticky Position (Contextual)</h2>
+        <p class="section-description">
+          Scrolls normally until it reaches the bottom, then sticks.
+          Great for footers within containers.
+        </p>
+        <div class="sticky-container">
+          <div class="sticky-content-wrapper">
+            <p>Scroll within this box to see the sticky footer effect...</p>
+            <p>More content...</p>
+            <p>Keep scrolling...</p>
+            <p>Almost there...</p>
+            <p>Last line of content</p>
+          </div>
+          <div class="sticky-footer-demo">
+            <span>🎯 I stick to the bottom when you scroll!</span>
+          </div>
+        </div>
+        <div class="code-block">
+          <code>position: sticky; bottom: 0;</code>
+        </div>
+      </section>
+
+      <!-- Example 3: Flexbox Bottom (Within Container) -->
+      <section class="example-section">
+        <h2 class="section-title">3. Flexbox Bottom (Within Container)</h2>
+        <p class="section-description">
+          Content stays at the bottom of its container using flexbox.
+          Ideal for cards with footer actions.
+        </p>
+        <div class="flex-container-demo">
+          <div class="flex-content">
+            <h3>Card Title</h3>
+            <p>This is card content that can be short or long...</p>
+          </div>
+          <div class="flex-bottom">
+            <button class="demo-btn">Action Button</button>
+          </div>
+        </div>
+        <div class="code-block">
+          <code>display: flex; flex-direction: column; margin-top: auto;</code>
+        </div>
+      </section>
+
+      <!-- Example 4: Absolute Position (Relative to Parent) -->
+      <section class="example-section">
+        <h2 class="section-title">4. Absolute Position (Relative to Parent)</h2>
+        <p class="section-description">
+          Positioned absolutely at the bottom of a relatively positioned parent.
+        </p>
+        <div class="relative-container-demo">
+          <div class="content">Parent container content</div>
+          <div class="absolute-bottom">
+            <span>📍 Absolute positioned at bottom</span>
+          </div>
+        </div>
+        <div class="code-block">
+          <code>position: absolute; bottom: 0; (parent: position: relative)</code>
+        </div>
+      </section>
+
+      <!-- Example 5: Grid Bottom (Using CSS Grid) -->
+      <section class="example-section">
+        <h2 class="section-title">5. CSS Grid Bottom</h2>
+        <p class="section-description">
+          Using CSS Grid to place content at the bottom.
+        </p>
+        <div class="grid-container-demo">
+          <div class="grid-header">Header</div>
+          <div class="grid-content">Main Content</div>
+          <div class="grid-footer">Footer at Bottom</div>
+        </div>
+        <div class="code-block">
+          <code>display: grid; grid-template-rows: auto 1fr auto;</code>
+        </div>
+      </section>
+
+      <!-- Spacer for demo purposes -->
+      <div class="spacer"></div>
+    </div>
+
+    <!-- Fixed Bottom Examples (Always Visible) -->
+    
+    <!-- Action Bar -->
+    <div class="fixed-action-bar" *ngIf="showActionBar">
+      <div class="action-bar-content">
+        <span class="action-text">Need help?</span>
+        <button class="action-btn" (click)="handleAction()">Contact Support</button>
+        <button class="close-btn" (click)="showActionBar = false">✕</button>
+      </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="floating-action-btn" [class.hidden]="!showFAB">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" *ngIf="showChatWidget">
+      <button class="chat-toggle" (click)="toggleChat()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="chat-badge" *ngIf="unreadMessages > 0">{{ unreadMessages }}</span>
+      </button>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" *ngIf="showCookieBanner">
+      <div class="cookie-content">
+        <span class="cookie-icon">🍪</span>
+        <p class="cookie-text">
+          We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+        </p>
+        <div class="cookie-actions">
+          <button class="cookie-btn accept" (click)="acceptCookies()">Accept</button>
+          <button class="cookie-btn decline" (click)="declineCookies()">Decline</button>
+        </div>
+      </div>
+    </div>

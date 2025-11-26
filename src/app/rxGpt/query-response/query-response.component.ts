@@ -79,9 +79,11 @@ export class QueryResponseComponent {
 // messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
 
     this.loading = true;
+    console.log('loading start', this.loading);
     setTimeout(() => {
     this.rxgptService.getDataWithCustomHeader(healthcareQuery).subscribe({
       next: (data: any) => {
+        
         this.posts = data;
         this.healthcareQueryRes = data['response'];
 
@@ -92,13 +94,14 @@ export class QueryResponseComponent {
         this.healthcareQuery = '';
         this.contentHeight = this.contentRef.nativeElement.scrollHeight;
 
+        console.log('loading ends', this.loading);
       }, error: (err) => {
         console.error('Error fetching posts:', err);
         this.loading = false;
       }
       
     })
-  }, 300);
+  }, 500);
     
     //this.loading = false;
   }

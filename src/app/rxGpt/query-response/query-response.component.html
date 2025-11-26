@@ -41,25 +41,31 @@
   <div class="chat-section">
 
     <!-- Loader -->
-    <div class="spinner-container" color="black" *ngIf="loading">
+    <!-- <div class="spinner-container" color="black" *ngIf="loading">
       <mat-spinner diameter="24"></mat-spinner>
-    </div>
+    </div> -->
+    <!-- <img src="assets/images/loader/dots-circle.svg" alt="loading...">
+<img src="assets/images/loader/circular-spinner.svg" alt="loading...">
+<img src="assets/images/loader/dashed-circle.svg" alt="loading...">
+<img src="assets/images/loader/gradient-circle.svg" alt="loading..."> -->
 
     <div class="chat-container">
       <div class="chat-input-wrapper">
 
        
-        <span class="pulse" *ngIf="listning" >●</span>
+        <!-- <span class="pulse" *ngIf="listning" >●</span> -->
+        <img src="assets/images/loader/circular-spinner.svg" alt="loading..." *ngIf="loading">
 
         <input type="text" class="chat-input" placeholder="Ask me any healthcare details..."
           [(ngModel)]="healthcareQuery" (keypress)="onQueryKeyPress($event)" />
 
+          
         <button class="chat-submit-btn" (click)="onSubmitQuery()">
           <span class="material-icons">send</span>
         </button>
 
-        <app-voice-to-text (voiceToTextMsgEvent)="voiceReceivedMessageHandler($event)" 
-                            (listeningEvent)="listeningMessageHandler($event)" ></app-voice-to-text>
+        <!-- <app-voice-to-text (voiceToTextMsgEvent)="voiceReceivedMessageHandler($event)" 
+                            (listeningEvent)="listeningMessageHandler($event)" ></app-voice-to-text> -->
       </div>
     </div>
   </div>

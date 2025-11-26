@@ -1,0 +1,444 @@
+   /* Container */
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      padding-bottom: 120px; /* Space for fixed bottom elements */
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1f2937;
+      margin: 0 0 0.5rem 0;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-subtitle {
+      font-size: 1.125rem;
+      color: #6b7280;
+      margin: 0 0 3rem 0;
+    }
+
+    /* Example Sections */
+    .example-section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .section-description {
+      color: #6b7280;
+      margin: 0 0 1rem 0;
+      line-height: 1.6;
+    }
+
+    .code-block {
+      background: #1f2937;
+      color: #10b981;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-top: 1rem;
+      font-family: 'Courier New', monospace;
+    }
+
+    .code-block code {
+      font-size: 0.9375rem;
+    }
+
+    /* Example 1: Fixed Position */
+    .fixed-action-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      padding: 1rem 2rem;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .action-bar-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .action-text {
+      color: white;
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .action-btn {
+      background: white;
+      color: #6366f1;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+
+    .close-btn {
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Example 2: Sticky Position */
+    .sticky-container {
+      height: 300px;
+      overflow-y: auto;
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      background: #f9fafb;
+      position: relative;
+    }
+
+    .sticky-content-wrapper {
+      padding: 2rem;
+      min-height: 400px;
+    }
+
+    .sticky-footer-demo {
+      position: sticky;
+      bottom: 0;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Example 3: Flexbox Bottom */
+    .flex-container-demo {
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 1.5rem;
+      background: #f9fafb;
+    }
+
+    .flex-content {
+      flex: 1;
+    }
+
+    .flex-content h3 {
+      color: #1f2937;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .flex-content p {
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .flex-bottom {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 2px solid #e5e7eb;
+    }
+
+    .demo-btn {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .demo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    /* Example 4: Absolute Position */
+    .relative-container-demo {
+      position: relative;
+      min-height: 200px;
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 1.5rem;
+      background: #f9fafb;
+    }
+
+    .content {
+      color: #6b7280;
+      margin-bottom: 3rem;
+    }
+
+    .absolute-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1f2937;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 0 0 14px 14px;
+    }
+
+    /* Example 5: Grid Bottom */
+    .grid-container-demo {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 300px;
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #f9fafb;
+    }
+
+    .grid-header {
+      background: #e5e7eb;
+      padding: 1rem;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .grid-content {
+      padding: 1.5rem;
+      color: #6b7280;
+    }
+
+    .grid-footer {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Floating Action Button */
+    .floating-action-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+      transition: all 0.3s ease;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .floating-action-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 28px rgba(99, 102, 241, 0.5);
+    }
+
+    .floating-action-btn.hidden {
+      transform: translateY(120px);
+      opacity: 0;
+    }
+
+    /* Chat Widget */
+    .chat-widget {
+      position: fixed;
+      bottom: 2rem;
+      right: 6rem;
+      z-index: 998;
+    }
+
+    .chat-toggle {
+      width: 60px;
+      height: 60px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chat-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 28px rgba(16, 185, 129, 0.5);
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ef4444;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Cookie Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+      border-top: 3px solid #6366f1;
+      z-index: 1001;
+      animation: slideUp 0.5s ease;
+    }
+
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .cookie-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .cookie-text {
+      flex: 1;
+      color: #4b5563;
+      margin: 0;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .cookie-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cookie-btn.accept {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+    }
+
+    .cookie-btn.accept:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    .cookie-btn.decline {
+      background: #f3f4f6;
+      color: #6b7280;
+    }
+
+    .cookie-btn.decline:hover {
+      background: #e5e7eb;
+    }
+
+    /* Spacer */
+    .spacer {
+      height: 200px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .demo-container {
+        padding: 1rem;
+      }
+
+      .action-bar-content {
+        flex-wrap: wrap;
+      }
+
+      .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cookie-actions {
+        width: 100%;
+      }
+
+      .cookie-btn {
+        flex: 1;
+      }
+
+      .floating-action-btn,
+      .chat-toggle {
+        width: 50px;
+        height: 50px;
+      }
+
+      .chat-widget {
+        right: 5rem;
+        bottom: 1.5rem;
+      }
+
+      .floating-action-btn {
+        right: 1.5rem;
+        bottom: 1.5rem;
+      }
+    }
