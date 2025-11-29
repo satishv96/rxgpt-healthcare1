@@ -1,1 +1,141 @@
-<p>enquiry works!</p>
+<div class="enquiry-wrapper">
+
+  <!-- HEADER -->
+  <section class="intro-section">
+    <div class="intro-left">
+      <h1 class="main-title">General Enquiry</h1>
+
+      <div class="intro-box">
+        <p>
+          Find hospital services below — or get instant answers using our AI Assistant. We're here to help you 24/7.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH BAR -->
+  <div class="search-container">
+    <div class="search-box-wrapper">
+      <div class="search-box">
+        <i class="ri-search-2-line search-icon"></i>
+        <input
+          type="text"
+          placeholder="Search doctor, service, topic..."
+          [(ngModel)]="query"
+          (ngModelChange)="onSearchChange($event)"
+          (keyup.enter)="askGenie()"
+        >
+      </div>
+
+      <!-- LIVE SUGGESTIONS -->
+      <ul class="suggestions-list" *ngIf="suggestions.length">
+        <li class="suggestion-item" *ngFor="let s of suggestions" (click)="applySuggestion(s)">
+          <i class="ri-search-line"></i>
+          <span>{{ s }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <button class="search-btn" (click)="askGenie()">Search</button>
+  </div>
+
+  <!-- RECENT SEARCHES -->
+  <div class="recent-searches" *ngIf="recentSearches.length">
+    <span class="recent-label">Recent:</span>
+    <button class="recent-chip" *ngFor="let r of recentSearches" (click)="applySuggestion(r)">
+      {{ r }}
+    </button>
+    <button class="recent-clear" (click)="clearRecentSearches()">
+      Clear
+    </button>
+  </div>
+
+  <!-- QUICK TOPICS -->
+  <h2 class="section-title">⚡ Quick Actions</h2>
+
+  <div class="topics-grid">
+    <div class="topic-card" *ngFor="let t of quickTopics" (click)="showWorkingMessage(t.label)">
+      <div class="topic-circle">
+        <i [ngClass]="t.icon"></i>
+      </div>
+      <span>{{ t.label }}</span>
+    </div>
+  </div>
+
+  <p *ngIf="showActionNote" class="work-msg action-msg">
+    <i [ngClass]="workingIconClass"></i>
+    Feature for <strong>{{ workingOnTopic }}</strong> is currently under development. Coming soon!
+  </p>
+
+  <!-- SERVICES -->
+  <div class="divider"></div>
+  <h2 class="section-title">🏥 Available Departments</h2>
+
+  <p class="no-result" *ngIf="!filteredServices.length">
+    No departments found for "<strong>{{ query }}</strong>". Try a different keyword like
+    <strong>heart, bone, eye, skin</strong> etc.
+  </p>
+
+  <div class="service-grid" *ngIf="filteredServices.length">
+    <div class="service-card" *ngFor="let s of filteredServices; let i = index" (click)="toggleExpand(i)">
+      <div class="service-header">
+        <div class="service-icon-wrapper">
+          <img [src]="s.icon" class="service-icon" />
+        </div>
+
+        <div class="service-text">
+          <h3 class="service-title-text">{{ s.title }}</h3>
+          <p class="service-desc-text">{{ s.desc }}</p>
+        </div>
+
+        <span class="service-arrow" [class.expanded]="expandedIndex === i">
+          <i class="ri-arrow-down-s-line"></i>
+        </span>
+      </div>
+
+      <span class="learn-more">Learn More</span>
+
+      <div class="expand-box" *ngIf="expandedIndex === i">
+        <p>{{ s.details }}</p>
+        <button
+          class="expand-btn"
+          (click)="openService(s.title); $event.stopPropagation();">
+          View Details →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI ASSISTANT -->
+  <div class="divider"></div>
+
+  <div class="assistant-card">
+    <div class="assistant-info">
+      <div class="assistant-icon-circle">
+        <img src="assets/images/RxGPT_icon.jpg" class="assistant-img" />
+      </div>
+
+      <div>
+        <h3 class="assistant-title">Ask Our AI Assistant</h3>
+        <p class="assistant-sub">Fast, reliable & smart support for your medical queries</p>
+      </div>
+    </div>
+
+    <button class="assistant-start" (click)="goToQueryResponse()">
+      <span>Start Chat</span>
+      <i class="ri-chat-1-line"></i>
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-box">
+    <p>Need support? Email <strong>care&#64;yourhospital.com</strong></p>
+
+    <a class="help-link" (click)="showHelpMessage()">Visit Help Center →</a>
+
+    <p *ngIf="showHelpNote" class="work-msg">
+      We are working on it. Coming soon!
+    </p>
+  </div>
+
+</div>
