@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RxGPTService } from '../../services/rxgpt.service';
+import { RxGPTService } from '../../../services/rxgpt.service';
 // import { ApiService } from '../../services/api.Service';
 // import { LoaderButtonComponent } from '../../common/loader-button/loader-button.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { VoiceToTextComponent } from "../voice-to-text/voice-to-text.component";
+import { VoiceToTextComponent } from '../voice-to-text/voice-to-text.component';
 import { ContentDisplayComponent } from '../content-display/content-display.component';
 
 

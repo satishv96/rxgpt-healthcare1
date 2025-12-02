@@ -1,0 +1,55 @@
+<header class="top-nav">
+  <div class="nav-container">
+    <!-- BRAND -->
+    <div class="brand">
+      <img src="assets/rxgpt-logo/logo1.svg" class="brand-logo" />
+
+      <div class="brand-text">
+        <h2 class="brand-title">Health Care</h2>
+        <span class="brand-subtitle">Smarter Hospitals, Better Care</span>
+      </div>
+    </div>
+    <!-- NAVIGATION -->
+    <nav class="right-nav">
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <!-- SOLUTIONS -->
+      <div class="dropdown"
+           (click)="toggleSolution()"
+           [class.active-sol]="solutionOpen">
+
+        <button class="drop-btn">
+          Solutions <span class="arrow">▾</span>
+        </button>
+
+        <div class="dropdown-menu" *ngIf="solutionOpen">
+          <a routerLink="/book">Book Your Doctor</a>
+          <a routerLink="/reportAnalyse">Lab Analysis</a>
+          <a routerLink="/staff">Hospital Staff</a>
+        </div>
+
+      </div>
+      <a routerLink="/enquiry" routerLinkActive="active">Enquiry</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+
+      <!-- LOGIN BUTTON -->
+      <a routerLink="/auth" class="login-btn">Login</a>
+    </nav>
+
+    <!-- MOBILE TOGGLE -->
+    <button class="mobile-toggle" (click)="toggleMenu()">☰</button>
+
+  </div>
+
+  <!-- RIGHT SIDE SLIDE SIDEBAR (NEW) -->
+  <div class="side-menu" [class.open]="isMenuOpen">
+    <button class="close-btn" (click)="toggleMenu()">✕</button>
+    <a routerLink="/home" (click)="toggleMenu()">Home</a>
+    <a routerLink="/book" (click)="toggleMenu()">Book Your Doctor</a>
+    <a routerLink="/reportAnalyse" (click)="toggleMenu()">Lab Analysis</a>
+    <a routerLink="/staff" (click)="toggleMenu()">Hospital Staff</a>
+    <a routerLink="/enquiry" (click)="toggleMenu()">Enquiry</a>
+    <a routerLink="/about" (click)="toggleMenu()">About</a>
+    <a routerLink="/auth" (click)="toggleMenu()" class="side-login-btn">Login</a>
+  </div>
+
+</header>

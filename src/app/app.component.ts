@@ -2,9 +2,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+// import { SidenavComponent } from './core/shared/sidenav/sidenav.component';
+// import { HeaderComponent } from './core/shared/header/header.component';
+import { FooterComponent } from './core/shared/footer/footer.component';
+import { TopnavComponent } from "./core/shared/topnav/topnav.component";
+
 
 @Component({
   selector: 'app-root',
@@ -12,10 +14,11 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    SidenavComponent,
-    HeaderComponent,
-    FooterComponent
-  ],
+    // SidenavComponent,
+    // HeaderComponent,
+    FooterComponent,
+    TopnavComponent
+],
   templateUrl:'app.component.html',
   styleUrl:'app.component.css'
 })

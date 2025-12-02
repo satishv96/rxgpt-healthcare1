@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RxGPTService } from '../../services/rxgpt.service';
+import { RxGPTService } from '../../../services/rxgpt.service';
 import { Router } from '@angular/router';
 
 interface FeatureCard {

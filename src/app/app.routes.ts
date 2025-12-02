@@ -8,48 +8,48 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
+    loadComponent: () => import('./modules/home-pages/home/home.component').then(m => m.HomeComponent)
   },
   {
     path: 'enquiry',
-    loadComponent: () => import('./pages/enquiry/enquiry.component').then(m => m.EnquiryComponent)
+    loadComponent: () => import('./modules/home-pages/enquiry/enquiry.component').then(m => m.EnquiryComponent)
   },
   {
     path: 'book',
-    loadComponent: () => import('./pages/book/book.component').then(m => m.BookComponent)
+    loadComponent: () => import('./modules/home-pages/book/book.component').then(m => m.BookComponent)
   },
   {
     path: 'auth',
-    loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent)
+    loadComponent: () => import('./core/auth/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: 'signup',
-    loadComponent: () => import('./auth/signup/signup.component').then(m => m.SignupComponent)
+    loadComponent: () => import('./core/auth/signup/signup.component').then(m => m.SignupComponent)
   },
   {
     path: 'help',
-    loadComponent: () => import('./pages/help/help.component').then(m => m.HelpComponent)
+    loadComponent: () => import('./modules/home-pages/help/help.component').then(m => m.HelpComponent)
   },
   {
     path: 'staff',
-    loadComponent: () => import('./pages/staff/staff.component').then(m => m.StaffComponent)
+    loadComponent: () => import('./modules/home-pages/staff/staff.component').then(m => m.StaffComponent)
   },
   {
     path: 'about',
-    loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent)
+    loadComponent: () => import('./modules/home-pages/about/about.component').then(m => m.AboutComponent)
   },
 
   {
     path: 'forgot-password',
-    loadComponent: () => import('./auth/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
+    loadComponent: () => import('./core/auth/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
   },
   {
     path: 'queryResponse',
-    loadComponent: () => import('./rxGpt/query-response/query-response.component').then(m => m.QueryResponseComponent)
+    loadComponent: () => import('./modules/rxGpt/query-response/query-response.component').then(m => m.QueryResponseComponent)
   },
   {
     path: 'reportAnalyse',
-    loadComponent: () => import('./pages/lab-report-analyse/lab-report-analyse.component').then(m => m.LabReportAnalyseComponent)
+    loadComponent: () => import('./modules/home-pages/lab-report-analyse/lab-report-analyse.component').then(m => m.LabReportAnalyseComponent)
   },
   {
     path: '**',

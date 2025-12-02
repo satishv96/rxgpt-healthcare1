@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContentParserService, ContentElement } from '../../services/content-parser.service';
+import { ContentParserService, ContentElement } from '../../../services/content-parser.service';
 
 @Component({
   selector: 'app-content-display',
