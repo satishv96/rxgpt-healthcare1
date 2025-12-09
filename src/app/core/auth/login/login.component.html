@@ -1,180 +1,175 @@
 <div class="login-container">
-      <!-- Background Decoration -->
-      <div class="background-decoration">
-        <div class="circle circle-1"></div>
-        <div class="circle circle-2"></div>
-        <div class="circle circle-3"></div>
+  <!-- Background Decoration -->
+  <div class="background-decoration">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <!-- Left Panel - Branding -->
+  <div class="left-panel">
+    <div class="branding-content">
+      <div class="logo-section">
+
+        <!-- FIXED LOGO -->
+        <img src="assets/rxgpt-logo/logo1.svg" alt="RxGPT Logo" class="brand-logo">
+
+        <!-- YOUR NEW TEXT (ADDED CLEANLY) -->
+        <p class="brand-main-title">Health Care</p>
+        <p class="brand-subtext">Smarter Hospitals, Better Care</p>
+
+        <p class="brand-tagline">Empowered by GenAI</p>
       </div>
 
-      <!-- Left Panel - Branding -->
-      <div class="left-panel">
-        <div class="branding-content">
-          <div class="logo-section">
-            <div class="logo-icon">Rx</div>
-            <h1 class="brand-name">GPT HealthCare</h1>
-            <p class="brand-tagline">Empowered by GenAI</p>
-          </div>
-          
-          <div class="features-showcase">
-            <div class="feature-item" *ngFor="let feature of features">
-              <div class="feature-icon">{{ feature.icon }}</div>
-              <div class="feature-content">
-                <h3>{{ feature.title }}</h3>
-                <p>{{ feature.description }}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="security-badges">
-            <span class="badge">🔒 HIPAA Compliant</span>
-            <span class="badge">✓ 256-bit Encryption</span>
-            <span class="badge">🛡️ SOC 2 Certified</span>
+      <div class="features-showcase">
+        <div class="feature-item" *ngFor="let feature of features">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <div class="feature-content">
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
           </div>
         </div>
       </div>
 
-      <!-- Right Panel - Login Form -->
-      <div class="right-panel">
-        <div class="form-container">
-          <!-- Back Button -->
-          <button class="back-button" (click)="goBack()">
-            <span class="back-icon">←</span>
-            <span>Back</span>
-          </button>
-
-          <!-- Header -->
-          <div class="form-header">
-            <div class="header-icon">
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                <circle cx="28" cy="28" r="28" fill="url(#gradient)"/>
-                <path d="M28 18v20M18 28h20" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                <defs>
-                  <linearGradient id="gradient" x1="0" y1="0" x2="56" y2="56">
-                    <stop offset="0%" stop-color="#6366f1"/>
-                    <stop offset="100%" stop-color="#8b5cf6"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <!-- <h2 class="form-title">Welcome Back</h2> -->
-            <p class="form-subtitle">Sign in to access RxGPT your healthcare dashboard</p>
-          </div>
-
-          <!-- Login Form -->
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-            <!-- Email/Phone Input -->
-            <div class="form-group">
-              <label for="identifier" class="form-label">Email or Phone Number</label>
-              <div class="input-wrapper" [class.focused]="identifierFocused" [class.error]="isFieldInvalid('identifier')">
-                <span class="input-icon">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M2.5 6.66667L9.0755 11.0504C9.63533 11.4236 10.3647 11.4236 10.9245 11.0504L17.5 6.66667M4.16667 15.8333H15.8333C16.7538 15.8333 17.5 15.0871 17.5 14.1667V5.83333C17.5 4.91286 16.7538 4.16667 15.8333 4.16667H4.16667C3.24619 4.16667 2.5 4.91286 2.5 5.83333V14.1667C2.5 15.0871 3.24619 15.8333 4.16667 15.8333Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <input
-                  id="identifier"
-                  type="text"
-                  formControlName="identifier"
-                  placeholder="Enter your email or phone number"
-                  class="form-input"
-                  (focus)="identifierFocused = true"
-                  (blur)="identifierFocused = false"
-                />
-              </div>
-              <span class="error-message" *ngIf="isFieldInvalid('identifier')">
-                {{ getErrorMessage('identifier') }}
-              </span>
-            </div>
-
-            <!-- Password Input -->
-            <div class="form-group">
-              <label for="password" class="form-label">Password</label>
-              <div class="input-wrapper" [class.focused]="passwordFocused" [class.error]="isFieldInvalid('password')">
-                <span class="input-icon">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5.83333 9.16667V6.66667C5.83333 4.36548 7.69881 2.5 10 2.5C12.3012 2.5 14.1667 4.36548 14.1667 6.66667V9.16667M10 12.0833V13.75M6.5 17.5H13.5C14.4205 17.5 15.1667 16.7538 15.1667 15.8333V10.8333C15.1667 9.91286 14.4205 9.16667 13.5 9.16667H6.5C5.57953 9.16667 4.83333 9.91286 4.83333 10.8333V15.8333C4.83333 16.7538 5.57953 17.5 6.5 17.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <input
-                  id="password"
-                  [type]="showPassword ? 'text' : 'password'"
-                  formControlName="password"
-                  placeholder="Enter your password"
-                  class="form-input"
-                  (focus)="passwordFocused = true"
-                  (blur)="passwordFocused = false"
-                />
-                <button
-                  type="button"
-                  class="toggle-password"
-                  (click)="togglePassword()"
-                  tabindex="-1"
-                >
-                  <svg *ngIf="!showPassword" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M2.5 10C2.5 10 5 4.16667 10 4.16667C15 4.16667 17.5 10 17.5 10C17.5 10 15 15.8333 10 15.8333C5 15.8333 2.5 10 2.5 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <svg *ngIf="showPassword" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M3.33333 3.33333L16.6667 16.6667M8.60844 8.60844C8.11818 9.09869 7.82738 9.77348 7.82738 10.4784C7.82738 11.1834 8.11818 11.8581 8.60844 12.3484C9.09869 12.8387 9.77348 13.1295 10.4784 13.1295C11.1834 13.1295 11.8581 12.8387 12.3484 12.3484M4.78125 4.78125C3.04167 6.02083 2.5 10 2.5 10C2.5 10 5 15.8333 10 15.8333C11.7396 15.8333 13.1667 15.2188 14.2188 14.2188M7.64583 3.64583C8.39583 3.4375 9.1875 3.33333 10 3.33333C15 3.33333 17.5 10 17.5 10C17.5 10 17.1146 11.0417 16.1458 12.3542" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
-              <span class="error-message" *ngIf="isFieldInvalid('password')">
-                {{ getErrorMessage('password') }}
-              </span>
-            </div>
-
-            <!-- Remember Me & Forgot Password -->
-            <div class="form-options">
-              <label class="checkbox-label">
-                <input type="checkbox" formControlName="rememberMe" class="checkbox-input">
-                <span class="checkbox-custom"></span>
-                <span class="checkbox-text">Remember me</span>
-              </label>
-              <a routerLink="/forgot-password" class="forgot-link">Forgot Password?</a>
-            </div>
-
-            <!-- Submit Button -->
-            <button
-              type="submit"
-              class="submit-button"
-              [disabled]="loginForm.invalid || isLoading"
-            >
-              <span *ngIf="!isLoading">Sign In</span>
-              <span *ngIf="isLoading" class="loading-spinner"></span>
-            </button>
-          </form>
-
-          <!-- Divider -->
-          <div class="divider">
-            <span class="divider-text">OR CONTINUE WITH</span>
-          </div>
-
-          <!-- Social Login -->
-          <div class="social-login">
-            <button type="button" class="social-button google" (click)="signInWithGoogle()">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M19.8055 10.2292C19.8055 9.55131 19.7494 8.86881 19.6287 8.20007H10.2002V11.9938H15.6014C15.3762 13.2013 14.6569 14.263 13.6175 14.963V17.3565H16.8294C18.7169 15.6059 19.8055 13.1034 19.8055 10.2292Z" fill="#4285F4"/>
-                <path d="M10.2002 19.6667C12.7568 19.6667 14.8914 18.8434 16.8339 17.3567L13.622 14.9633C12.7389 15.5567 11.5945 15.8959 10.2047 15.8959C7.73638 15.8959 5.66221 14.1275 4.88138 11.7788H1.56055V14.2363C3.53555 18.1609 6.70471 19.6667 10.2002 19.6667Z" fill="#34A853"/>
-                <path d="M4.87693 11.7738C4.42443 10.5663 4.42443 9.24297 4.87693 8.03547V5.57797H1.56068C0.166179 8.34464 0.166179 11.4646 1.56068 14.2313L4.87693 11.7738Z" fill="#FBBC04"/>
-                <path d="M10.2002 4.10419C11.6665 4.08336 13.0827 4.64794 14.1352 5.66669L17.0073 2.79461C14.7919 0.705277 11.8494 -0.433056 10.2002 -0.416667C6.70471 -0.416667 3.53555 1.08919 1.56055 5.01794L4.87138 7.47544C5.64763 5.12211 7.72638 4.10419 10.2002 4.10419Z" fill="#EA4335"/>
-              </svg>
-              <span>Sign in with Google</span>
-            </button>
-
-            <button type="button" class="social-button facebook" (click)="signInWithFacebook()">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M20 10C20 4.47715 15.5229 0 10 0C4.47715 0 0 4.47715 0 10C0 14.9912 3.65684 19.1283 8.4375 19.8785V12.8906H5.89844V10H8.4375V7.79688C8.4375 5.29063 9.93047 3.90625 12.2146 3.90625C13.3084 3.90625 14.4531 4.10156 14.4531 4.10156V6.5625H13.1922C11.95 6.5625 11.5625 7.3334 11.5625 8.125V10H14.3359L13.8926 12.8906H11.5625V19.8785C16.3432 19.1283 20 14.9912 20 10Z" fill="#1877F2"/>
-              </svg>
-              <span>Sign in with Facebook</span>
-            </button>
-          </div>
-
-          <!-- Sign Up Link -->
-          <div class="signup-link">
-            Don't have an account? 
-            <a routerLink="/signup" class="link-primary">Sign Up</a>
-          </div>
-        </div>
+      <div class="security-badges">
+        <span class="badge">🔒 HIPAA Compliant</span>
+        <span class="badge">✓ 256-bit Encryption</span>
+        <span class="badge">🛡 SOC 2 Certified</span>
       </div>
     </div>
+  </div>
+
+  <!-- Right Panel - Login Form -->
+  <div class="right-panel">
+    <div class="form-container">
+
+      <!-- Back Button -->
+      <button class="back-button" (click)="goBack()">
+        <span class="back-icon">←</span>
+        <span>Back</span>
+      </button>
+
+      <!-- Header -->
+      <div class="form-header">
+        <div class="header-icon">
+          <img src="assets/rxgpt-logo/logo1.svg" alt="RxGPT Logo" class="header-logo">
+        </div>
+
+        <p class="form-subtitle">Sign in to access RxGPT your healthcare dashboard</p>
+      </div>
+
+      <!-- Login Form -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+
+        <!-- Email/Phone Input -->
+        <div class="form-group">
+          <label for="identifier" class="form-label">Email or Phone Number</label>
+          <div class="input-wrapper" [class.focused]="identifierFocused" [class.error]="isFieldInvalid('identifier')">
+            <span class="input-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M2.5 6.66667L9.0755 11.0504C9.63533 11.4236 10.3647 11.4236 10.9245 11.0504L17.5 6.66667M4.16667 15.8333H15.8333C16.7538 15.8333 17.5 15.0871 17.5 14.1667V5.83333C17.5 4.91286 16.7538 4.16667 15.8333 4.16667H4.16667C3.24619 4.16667 2.5 4.91286 2.5 5.83333V14.1667C2.5 15.0871 3.24619 15.8333 4.16667 15.8333Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <input
+              id="identifier"
+              type="text"
+              formControlName="identifier"
+              placeholder="Enter your email or phone number"
+              class="form-input"
+              (focus)="identifierFocused = true"
+              (blur)="identifierFocused = false"
+            />
+          </div>
+          <span class="error-message" *ngIf="isFieldInvalid('identifier')">
+            {{ getErrorMessage('identifier') }}
+          </span>
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-wrapper" [class.focused]="passwordFocused" [class.error]="isFieldInvalid('password')">
+            <span class="input-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5.83333 9.16667V6.66667C5.83333 4.36548 7.69881 2.5 10 2.5C12.3012 2.5 14.1667 4.36548 14.1667 6.66667V9.16667M10 12.0833V13.75M6.5 17.5H13.5C14.4205 17.5 15.1667 16.7538 15.1667 15.8333V10.8333C15.1667 9.91286 14.4205 9.16667 13.5 9.16667H6.5C5.57953 9.16667 4.83333 9.91286 4.83333 10.8333V15.8333C4.83333 16.7538 5.57953 17.5 6.5 17.5Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <input
+              id="password"
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="Enter your password"
+              class="form-input"
+              (focus)="passwordFocused = true"
+              (blur)="passwordFocused = false"
+            />
+            <button type="button" class="toggle-password" (click)="togglePassword()" tabindex="-1">
+              <svg *ngIf="!showPassword" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M2.5 10C2.5 10 5 4.16667 10 4.16667C15 4.16667 17.5 10 17.5 10C17.5 10 15 15.8333 10 15.8333C5 15.8333 2.5 10 2.5 10Z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <svg *ngIf="showPassword" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M3.33333 3.33333L16.6667 16.6667" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8.60844 8.60844C8.11818 9.09869 7.82738 9.77348 7.82738 10.4784C7.82738 11.1834 8.11818 11.8581 8.60844 12.3484C9.09869 12.8387 9.77348 13.1295 10.4784 13.1295C11.1834 13.1295 11.8581 12.8387 12.3484 12.3484" 
+                stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </button>
+          </div>
+          <span class="error-message" *ngIf="isFieldInvalid('password')">
+            {{ getErrorMessage('password') }}
+          </span>
+        </div>
+
+        <!-- Remember me + Forgot -->
+        <div class="form-options">
+          <label class="checkbox-label">
+            <input type="checkbox" formControlName="rememberMe" class="checkbox-input">
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text">Remember me</span>
+          </label>
+          <a routerLink="/forgot-password" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-button" [disabled]="loginForm.invalid || isLoading">
+          <span *ngIf="!isLoading">Sign In</span>
+          <span *ngIf="isLoading" class="loading-spinner"></span>
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div class="divider">
+        <span class="divider-text">OR CONTINUE WITH</span>
+      </div>
+
+      <!-- Social Login -->
+      <div class="social-login">
+        <button type="button" class="social-button google" (click)="signInWithGoogle()">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M19.8055 10.2292C19.8055 9.55131 19.7494 8.86881 19.6287 8.20007H10.2002V11.9938H15.6014C15.3762 13.2013 14.6569 14.263 13.6175 14.963V17.3565H16.8294C18.7169 15.6059 19.8055 13.1034 19.8055 10.2292Z" fill="#4285F4"/>
+            <path d="M10.2002 19.6667C12.7568 19.6667 14.8914 18.8434 16.8339 17.3567L13.622 14.9633C12.7389 15.5567 11.5945 15.8959 10.2047 15.8959C7.73638 15.8959 5.66221 14.1275 4.88138 11.7788H1.56055V14.2363C3.53555 18.1609 6.70471 19.6667 10.2002 19.6667Z" fill="#34A853"/>
+            <path d="M4.87693 11.7738C4.42443 10.5663 4.42443 9.24297 4.87693 8.03547V5.57797H1.56068C0.166179 8.34464 0.166179 11.4646 1.56068 14.2313L4.87693 11.7738Z" fill="#FBBC04"/>
+            <path d="M10.2002 4.10419C11.6665 4.08336 13.0827 4.64794 14.1352 5.66669L17.0073 2.79461C14.7919 0.705277 11.8494 -0.433056 10.2002 -0.416667C6.70471 -0.416667 3.53555 1.08919 1.56055 5.01794L4.87138 7.47544C5.64763 5.12211 7.72638 4.10419 10.2002 4.10419Z" fill="#EA4335"/>
+          </svg>
+          <span>Sign in with Google</span>
+        </button>
+
+        <button type="button" class="social-button facebook" (click)="signInWithFacebook()">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M20 10C20 4.47715 15.5229 0 10 0C4.47715 0 0 4.47715 0 10C0 14.9912 3.65684 19.1283 8.4375 19.8785V12.8906H5.89844V10H8.4375V7.79688C8.4375 5.29063 9.93047 3.90625 12.2146 3.90625C13.3084 3.90625 14.4531 4.10156 14.4531 4.10156V6.5625H13.1922C11.95 6.5625 11.5625 7.3334 11.5625 8.125V10H14.3359L13.8926 12.8906H11.5625V19.8785C16.3432 19.1283 20 14.9912 20 10Z" fill="#1877F2"/>
+          </svg>
+          <span>Sign in with Facebook</span>
+        </button>
+      </div>
+
+      <!-- Sign Up Link -->
+      <div class="signup-link">
+        Don't have an account?
+        <a routerLink="/signup" class="link-primary">Sign Up</a>
+      </div>
+
+    </div>
+  </div>
+</div>

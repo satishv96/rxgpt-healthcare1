@@ -1,0 +1,354 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer !important;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  background: #e8edff;
+  display: flex;
+  justify-content: center;
+  padding: 65px 12px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------
+   GREETING SECTION
+--------------------------------------------------*/
+
+.greet-section {
+  width: 100%;
+  background: linear-gradient(135deg, #f7f9ff, #e3e8ff);
+  padding: 26px;
+  border-radius: 22px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.greet-left {
+  flex: 1;
+}
+
+.hello {
+  font-size: 14px;
+  color: #555;
+}
+
+.title {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.highlight {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.health-tip {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* RIGHT SIDE */
+.greet-right {
+  display: flex;
+  align-items: center;
+  gap: 22px; /* FIXED */
+}
+
+/* ------------------------------------------------
+   LOYALTY CARD
+--------------------------------------------------*/
+
+.loyalty-rectangle {
+  width: 320px;
+  padding: 8px 20px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #6a11cb, #2575fc);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 22px;
+}
+
+.loyalty-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.loyalty-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loyalty-icon-wrap i {
+  font-size: 20px;
+}
+
+.pill-btn {
+  background: #fff;
+  padding: 6px 14px;
+  color: #6a11cb;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------
+   NOTIFICATION BUTTON
+--------------------------------------------------*/
+
+.notif-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notif-btn i {
+  color: #6a11cb;
+  font-size: 20px;
+}
+
+/* ------------------------------------------------
+   SECTION HEADERS
+--------------------------------------------------*/
+
+.section-space {
+  margin-top: 34px;
+  width: 100%;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.link-btn {
+  background: none;
+  color: #6a11cb;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ------------------------------------------------
+   APPOINTMENT GRID
+--------------------------------------------------*/
+
+.appointment-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 22px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* ------------------------------------------------
+   APPOINTMENT CARD
+--------------------------------------------------*/
+
+.doc-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.doc-img {
+  width: 75px;
+  height: 75px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 3px solid #dedcff;
+}
+
+.call-btn {
+  margin-left: auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #20d77b, #19b069);
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.meta-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.meta-chip {
+  background: #eef0ff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ------------------------------------------------
+   FEATURE CARD
+--------------------------------------------------*/
+
+.feature-card {
+  background: linear-gradient(135deg, #eef2ff, #ffffff);
+}
+
+.feature-btn {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 8px 14px;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+/* ------------------------------------------------
+   SHORTCUT GRID
+--------------------------------------------------*/
+
+.shortcuts-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.shortcut-card {
+  background: #fff;
+  padding: 20px 12px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+.shortcut-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 999px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shortcut-icon i {
+  color: white;
+  font-size: 30px;
+}
+
+.book    { background: #6a11cb; }
+.record  { background: #ff8f1f; }
+.skin    { background: #ff2e63; }
+.wallet  { background: #8d3bff; }
+.fitness { background: #19c76f; }
+.lab     { background: #00a7d6; }
+
+/* ------------------------------------------------
+   INFO BANNER
+--------------------------------------------------*/
+
+.info-banner {
+  margin-top: 26px;
+  background: #fff8d6;
+  border-left: 4px solid #f8c43d;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #564a1a;
+}
+
+/* ------------------------------------------------
+   RESPONSIVE DESIGN
+--------------------------------------------------*/
+
+@media (max-width: 1024px) {
+  .appointment-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 750px) {
+  .greet-section {
+    flex-direction: column;
+  }
+  .greet-right {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .shortcuts-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+  .screen {
+    padding: 100px 10px 20px;
+  }
+  .loyalty-rectangle {
+    width: 100%;
+  }
+  .doc-img {
+    width: 65px;
+    height: 65px;
+  }
+}

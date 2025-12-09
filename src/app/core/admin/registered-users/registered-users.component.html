@@ -1,0 +1,55 @@
+<div class="user-container">
+
+  <h2 class="title">Registered Users</h2>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="status loading">
+    Loading users...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="isError" class="status error">
+    Failed to load user data. Please try again later.
+  </div>
+
+  <!-- Table -->
+  <table *ngIf="!isLoading && !isError && users.length" class="user-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Role</th>
+        <th>Verified</th>
+        <th>Active</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{ u.user_id }}</td>
+        <td>{{ u.first_name }} {{ u.last_name }}</td>
+        <td>{{ u.date_of_birth | date:'mediumDate' }}</td>
+        <td>{{ u.gender }}</td>
+        <td>{{ u.primary_phone }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.location }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.is_verified }}</td>
+        <td>{{ u.is_active }}</td>
+        <td>{{ u.created_at | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- No Data -->
+  <div *ngIf="!isLoading && !isError && !users.length" class="status empty">
+    No users found.
+  </div>
+
+</div>

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -21,21 +22,24 @@ export class SignupComponent {
 
   stats = [
     { number: '50K+', label: 'Active Users' },
-    { number: '1M+', label: 'Consultations' },
+    // { number: '1M+', label: 'Consultations' },
     { number: '500+', label: 'Doctors' },
     { number: '24/7', label: 'Support' }
   ];
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
     this.signupForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       dateOfBirth: ['', Validators.required],
+      gender: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)]],
       email: ['', [Validators.required, Validators.email]],
+      location: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
       agreeTerms: [false, Validators.requiredTrue],
@@ -43,7 +47,6 @@ export class SignupComponent {
       newsletter: [false]
     }, { validators: this.passwordMatchValidator });
 
-    // Watch password changes for strength indicator
     this.signupForm.get('password')?.valueChanges.subscribe(password => {
       this.passwordStrength = this.calculatePasswordStrength(password);
     });
@@ -61,14 +64,14 @@ export class SignupComponent {
 
   calculatePasswordStrength(password: string): number {
     if (!password) return 0;
-    
+
     let strength = 0;
     if (password.length >= 8) strength++;
     if (password.length >= 12) strength++;
     if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
     if (/[0-9]/.test(password)) strength++;
     if (/[^a-zA-Z0-9]/.test(password)) strength++;
-    
+
     return Math.min(strength, 4);
   }
 
@@ -84,7 +87,7 @@ export class SignupComponent {
 
   getErrorMessage(fieldName: string): string {
     const field = this.signupForm.get(fieldName);
-    
+
     if (field?.hasError('required')) {
       return `${this.getFieldLabel(fieldName)} is required`;
     }
@@ -105,14 +108,16 @@ export class SignupComponent {
   }
 
   getFieldLabel(fieldName: string): string {
-    const labels: {[key: string]: string} = {
+    const labels: { [key: string]: string } = {
       firstName: 'First name',
       lastName: 'Last name',
       dateOfBirth: 'Date of birth',
       phone: 'Phone number',
       email: 'Email',
       password: 'Password',
-      confirmPassword: 'Password confirmation'
+      confirmPassword: 'Password confirmation',
+      location: "Location",
+      gender: "Gender"
     };
     return labels[fieldName] || fieldName;
   }
@@ -127,26 +132,26 @@ export class SignupComponent {
 
   nextStep(): void {
     if (this.currentStep === 1) {
-      const step1Fields = ['firstName', 'lastName', 'dateOfBirth', 'phone'];
+      const step1Fields = ['firstName', 'lastName', 'dateOfBirth', 'gender', 'phone'];
       let isValid = true;
-      
+
       step1Fields.forEach(field => {
         const control = this.signupForm.get(field);
         control?.markAsTouched();
         if (control?.invalid) isValid = false;
       });
-      
+
       if (isValid) this.currentStep++;
     } else if (this.currentStep === 2) {
-      const step2Fields = ['email', 'password', 'confirmPassword'];
+      const step2Fields = ['email', 'password', 'confirmPassword', 'location'];
       let isValid = true;
-      
+
       step2Fields.forEach(field => {
         const control = this.signupForm.get(field);
         control?.markAsTouched();
         if (control?.invalid) isValid = false;
       });
-      
+
       if (isValid) this.currentStep++;
     }
   }
@@ -157,33 +162,66 @@ export class SignupComponent {
     }
   }
 
+  // 🎯 FINAL WORKING API CALL
   onSubmit(): void {
-    if (this.signupForm.valid) {
-      this.isLoading = true;
-      
-      // Simulate API call
-      setTimeout(() => {
-        console.log('Signup data:', this.signupForm.value);
-        this.isLoading = false;
-        this.router.navigate(['/login'], { 
-          queryParams: { registered: 'true' } 
-        });
-      }, 2000);
-    } else {
+    if (this.signupForm.invalid) {
       Object.keys(this.signupForm.controls).forEach(key => {
         this.signupForm.get(key)?.markAsTouched();
       });
+      return;
     }
+
+    this.isLoading = true;
+
+    const f = this.signupForm.value;
+
+  const payload = {
+  user_id: 0,
+  first_name: f.firstName,
+  last_name: f.lastName,
+  date_of_birth: new Date(f.dateOfBirth).toISOString(),
+  gender: f.gender,
+  primary_phone: f.phone,
+  secondary_phone: "N/A",
+  email: f.email,
+  password_hash: f.password,
+  location: f.location,
+  role: "patient",
+  is_verified: "N",
+  is_active: "Y",
+  created_at: new Date().toISOString(),
+  updated_at: new Date().toISOString()
+};
+
+
+    console.log("📤 Sending Payload:", payload);
+
+    this.userService.createUser(payload).subscribe({
+      next: (res) => {
+        console.log("🎉 User created successfully:", res);
+        this.isLoading = false;
+
+        this.router.navigate(['/auth'], {
+          queryParams: { registered: 'true' }
+        });
+      },
+      error: (error) => {
+  this.isLoading = false;
+  console.error("API ERROR:", error);
+
+  alert("Signup failed!\n\n" + JSON.stringify(error.error || error.message || error));
+}
+
+      
+    });
   }
 
   signUpWithGoogle(): void {
     console.log('Sign up with Google');
-    // Implement Google OAuth
   }
 
   signUpWithFacebook(): void {
     console.log('Sign up with Facebook');
-    // Implement Facebook OAuth
   }
 
   goBack(): void {
