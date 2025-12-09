@@ -1,17 +1,14 @@
 <div class="app-container">
-      <!-- <app-header (menuToggle)="toggleSidenav()"></app-header> -->
-      
-      <app-topnav> </app-topnav>
-      <div class="main-wrapper">
-        <!-- <app-sidenav 
-          [isCollapsed]="isSidenavCollapsed"
-          (collapsedChange)="onSidenavCollapse($event)">
-        </app-sidenav> -->
-        
-        <main class="content-area" [class.expanded]="isSidenavCollapsed">
-          <router-outlet></router-outlet>
-        </main>
-      </div>
-      
-      <app-footer></app-footer>
-    </div>
+
+  <app-topnav></app-topnav>
+
+  <div class="main-wrapper">
+
+    <main class="content-area" [class.expanded]="isSidenavCollapsed">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
+  <app-footer></app-footer>
+</div>

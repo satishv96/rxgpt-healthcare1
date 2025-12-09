@@ -52,6 +52,13 @@ export const routes: Routes = [
     loadComponent: () => import('./modules/home-pages/lab-report-analyse/lab-report-analyse.component').then(m => m.LabReportAnalyseComponent)
   },
   {
+  path: 'registered-users',
+  loadComponent: () =>
+    import('./core/admin/registered-users/registered-users.component')
+      .then(m => m.RegisteredUsersComponent)
+},
+
+  {
     path: '**',
     redirectTo: '/home'
   }

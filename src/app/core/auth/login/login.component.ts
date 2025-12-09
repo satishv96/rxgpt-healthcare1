@@ -1,4 +1,3 @@
-
 // login.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -31,7 +30,7 @@ export class LoginComponent {
       description: 'Get instant insights and recommendations powered by advanced AI technology.'
     },
     {
-      icon: '👨‍⚕️',
+      icon: '👨‍⚕',
       title: 'Expert Care',
       description: 'Connect with certified healthcare professionals 24/7 from anywhere.'
     }
@@ -57,10 +56,12 @@ export class LoginComponent {
     const field = this.loginForm.get(fieldName);
     if (field?.hasError('required')) {
       return `${fieldName === 'identifier' ? 'Email or phone' : 'Password'} is required`;
+
     }
     if (field?.hasError('minlength')) {
       const minLength = field.errors?.['minlength'].requiredLength;
       return `Must be at least ${minLength} characters`;
+
     }
     return '';
   }
@@ -100,4 +101,3 @@ export class LoginComponent {
     this.router.navigate(['/']);
   }
 }
-  

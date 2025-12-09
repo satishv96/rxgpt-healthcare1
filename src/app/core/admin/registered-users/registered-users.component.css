@@ -1,0 +1,55 @@
+.user-container {
+  padding: 2rem;
+  background: #f9fafb;
+  min-height: calc(100vh - 80px);
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4f46e5;
+  margin-bottom: 1.5rem;
+}
+
+.status {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.status.loading {
+  color: #6b7280;
+}
+
+.status.error {
+  color: #dc2626;
+}
+
+.status.empty {
+  color: #6b7280;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.user-table th {
+  background: #f3f4f6;
+  font-weight: 700;
+  color: #374151;
+}
+
+.user-table tr:hover {
+  background: #f9fafb;
+}

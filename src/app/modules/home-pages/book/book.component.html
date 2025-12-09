@@ -1,8 +1,161 @@
+<div class="screen">
+  <div class="container">
+
+    <!-- GREETING SECTION -->
+    <header class="greet-section">
+
+      <!-- LEFT -->
+      <div class="greet-left">
+        <p class="hello">Hello, India👋</p>
+
+        <h1 class="title">
+          Let’s See Your <br />
+          <span class="highlight">Today’s Appointment</span>
+        </h1>
+
+        <p class="health-tip">{{ healthTip }}</p>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="greet-right">
+
+        <!-- LOYALTY CARD -->
+        <div class="loyalty-rectangle">
+          <div class="loyalty-left">
+            <div class="loyalty-icon-wrap">
+              <i class="ri-vip-crown-fill"></i>
+            </div>
+            <div>
+              <p class="loyalty-label">Loyalty Balance</p>
+              <div class="points-row">
+                <span class="points-main">1,250</span>
+                <span class="points-unit">pts</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="pill-btn" (click)="working()">Redeem</button>
+        </div>
+
+        <button class="notif-btn" (click)="working()">
+          <i class="ri-notification-3-line"></i>
+        </button>
+
+      </div>
+
+    </header>
 
 
-<app-work-in-progress
-description="Book your doctor page is currently under construction. Our team is working hard to bring you an exceptional experience."
-  [showFeatures]="false"
-  [showProgress]="false"
-  [showNotifyButton]="false">  
-</app-work-in-progress>
+
+    <!-- UPCOMING APPOINTMENT -->
+    <section class="section-space">
+      <div class="section-header">
+        <h2>Upcoming Appointment</h2>
+        <button class="link-btn" (click)="working()">See all</button>
+      </div>
+
+      <div class="appointment-grid">
+
+        <!-- CARD -->
+        <article class="card appointment-card">
+
+          <div class="doc-row">
+            <img src="assets/doctor.jpg" class="doc-img" />
+
+            <div class="doc-text">
+              <h3>Dr. Suraj Kumar</h3>
+              <p>Plastic Surgeon</p>
+            </div>
+
+            <button class="call-btn" (click)="showCallMessage()">
+              <i class="ri-phone-fill"></i>
+            </button>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-chip">
+              <i class="ri-calendar-line"></i> Mon, 26 July
+            </div>
+            <div class="meta-chip">
+              <i class="ri-time-line"></i> 09:00 – 10:00
+            </div>
+          </div>
+
+        </article>
+
+
+        <!-- FEATURE CARD -->
+        <article class="card feature-card">
+          <h3>Your Check-in</h3>
+          <p>You have 1 important appointment today.</p>
+          <button class="feature-btn" (click)="working()">Open</button>
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+
+    <!-- SHORTCUTS -->
+    <section class="section-space">
+      <div class="section-header">
+        <h2>Shortcuts</h2>
+      </div>
+
+      <div class="shortcuts-grid">
+
+        <button class="shortcut-card" (click)="working()">
+          <div class="shortcut-icon book">
+            <i class="ri-hospital-fill"></i>
+          </div>
+          <span>Book Appointment</span>
+        </button>
+
+        <button class="shortcut-card" (click)="working()">
+          <div class="shortcut-icon record">
+            <i class="ri-file-list-3-line"></i>
+          </div>
+          <span>Records</span>
+        </button>
+
+        <button class="shortcut-card" (click)="working()">
+          <div class="shortcut-icon skin">
+            <i class="ri-scan-2-fill"></i>
+          </div>
+          <span>Skin Scan</span>
+        </button>
+
+        <button class="shortcut-card" (click)="working()">
+          <div class="shortcut-icon wallet">
+            <i class="ri-wallet-3-fill"></i>
+          </div>
+          <span>Payments</span>
+        </button>
+
+        <button class="shortcut-card" (click)="working()">
+          <div class="shortcut-icon fitness">
+            <i class="ri-heart-pulse-fill"></i>
+          </div>
+          <span>Fitness</span>
+        </button>
+
+        <button class="shortcut-card" (click)="working()">
+          <div class="shortcut-icon lab">
+            <i class="ri-flask-fill"></i>
+          </div>
+          <span>Lab</span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- INFO MESSAGE -->
+    <p *ngIf="workingMessage" class="info-banner">
+      {{ workingMessage }}
+    </p>
+
+  </div>
+</div>
